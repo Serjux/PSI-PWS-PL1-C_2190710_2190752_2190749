@@ -1,0 +1,11 @@
+#para o git ignorar tudo
+/*
+#menos as seguintes pastas e ficheiros
+!/App
+!/.gitignore
+!/Doc
+#no entanto, queremos que ele ignore também a
+#pasta vendor da weblogicmvc, pois não nos
+#interessa que vá para o git, nem a pasta que
+#contém as configurações do IDE
+/App/.idea
