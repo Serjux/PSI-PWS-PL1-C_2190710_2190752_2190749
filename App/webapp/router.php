@@ -18,7 +18,7 @@ Router::get('home/index',	'HomeController/index');
 Router::get('home/start',	'HomeController/start');
 
 Router::get('jogo/index', 'GameController/index');
-
+Router::get('jogo/tabuleiro', 'GameController/tabuleiro');
 
 
 

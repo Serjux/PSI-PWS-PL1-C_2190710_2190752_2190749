@@ -7,8 +7,13 @@ class Tabuleiro
     public $resultadoDado1, $resultadoDado2;
     public $numerosBloqueioP1, $numeroBloqueioP2;
 
-    public function rolarDados() {
+    public function __construct() {
+        $this->dado = new Dado();
+    }
 
+    public function rolarDados() {
+        $resultadoDado1 = $this->dado->rolarDado();
+        $resultadoDado2 = $this->dado->rolarDado();
     }
 
     public function checkFinalJogadaP1($soma) {

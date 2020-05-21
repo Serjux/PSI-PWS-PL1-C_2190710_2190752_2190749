@@ -1,3 +1,4 @@
+<?php use ArmoredCore\WebObjects\URL; ?>
 <!doctype html>
 <html lang="pt">
 <head>
@@ -8,33 +9,6 @@
     <title>Document</title>
 </head>
 <body>
-<h1><a>Iniciar Jogo</a></h1>
-
-<div style="border: double; width: 26%">
-    <button class="b_numero" style="margin-right: 30px"> 1 </button>
-    <button class="b_numero" style="margin-right: 30px"> 2 </button>
-    <button class="b_numero" style="margin-right: 30px"> 3 </button>
-    <button class="b_numero" style="margin-right: 30px"> 4 </button>
-    <button class="b_numero" style="margin-right: 30px"> 5 </button>
-    <button class="b_numero" style="margin-right: 30px"> 6 </button>
-    <button class="b_numero" style="margin-right: 30px"> 7 </button>
-    <button class="b_numero" style="margin-right: 30px"> 8 </button>
-    <button class="b_numero"> 9 </button>
-</div>
-    <table border="2"width="50%" height="400px">
-
-    </table>
-<div style="border: double; width: 26%">
-    <button class="b_numero2" style="margin-right: 30px"> 1 </button>
-    <button class="b_numero2" style="margin-right: 30px"> 2 </button>
-    <button class="b_numero2" style="margin-right: 30px"> 3 </button>
-    <button class="b_numero2" style="margin-right: 30px"> 4 </button>
-    <button class="b_numero2" style="margin-right: 30px"> 5 </button>
-    <button class="b_numero2" style="margin-right: 30px" > 6 </button>
-    <button class="b_numero2" style="margin-right: 30px" > 7 </button>
-    <button class="b_numero2" style="margin-right: 30px"> 8 </button>
-    <button class="b_numero2" > 9 </button>
-</div>
-
+<h1><a href="<?= URL::toRoute('jogo/tabuleiro') ?>">Iniciar Jogo</a></h1>
 </body>
 </html>
