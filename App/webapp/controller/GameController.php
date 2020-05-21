@@ -8,15 +8,26 @@ class GameController
         return View::make('game.index');
     }
 
-    public function tabuleiro() {
+    public function iniciarJogo() {
+
         if(!Session::has('gameEngine')) {
             $engine = new GameEngine();
-            Session::set('gameEngine', $engine);
         }
         else {
             $engine = Session::get('gameEngine');
-        }
 
-        return View::make('game.tabuleiro');
+        }
+        $engine->iniciarJogo();
+        Session::set('gameEngine', $engine);
+
+        return View::make('game.tabuleiro', ['ge'=> $engine]);
+    }
+    public function rolarDados() {
+        $engine = Session::get('gameEngine');
+        $engine->rolarDados();
+        $engine->updateEstadoJogo();
+        Session::set('gameEngine', $engine);
+
+        return View::make('game.tabuleiro', ['ge'=> $engine]);
     }
 }

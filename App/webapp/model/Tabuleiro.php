@@ -12,8 +12,8 @@ class Tabuleiro
     }
 
     public function rolarDados() {
-        $resultadoDado1 = $this->dado->rolarDado();
-        $resultadoDado2 = $this->dado->rolarDado();
+        $this->resultadoDado1 = $this->dado->rolarDado();
+        $this->resultadoDado2 = $this->dado->rolarDado();
     }
 
     public function checkFinalJogadaP1($soma) {
