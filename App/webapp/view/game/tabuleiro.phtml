@@ -20,9 +20,7 @@ if ($engine->getEstadoJogo() == 1) { ?>
     <a href="<?= URL::toRoute('jogo/rolardados') ?>">Rolar dados</a>
 <?php }
 if ($engine->getEstadoJogo() == 2) {
-
     echo $engine->tabuleiro->resultadoDado1 . ' + ' . $engine->tabuleiro->resultadoDado2;
-
 }
 ?>
 <div style="border: double; width: 26%">

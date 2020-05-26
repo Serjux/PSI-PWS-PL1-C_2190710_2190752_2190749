@@ -14,15 +14,14 @@ class GameEngine
     }
 
     public function getEstadoJogo() {
-    return $this->estadoJogo;
+        return $this->estadoJogo;
     }
 
     public function updateEstadoJogo() {
-        $this->estadoJogo+=1;
-
+        $this->estadoJogo += 1;
     }
     public function rolarDados() {
         //Inicializar os dados
-        $this->tabuleiro -> rolarDados();
+        $this->tabuleiro->rolarDados();
     }
 }
