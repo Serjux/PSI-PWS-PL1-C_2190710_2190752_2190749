@@ -13,9 +13,6 @@ use ArmoredCore\Facades\Router;
  ****************************************************************************/
 
 Router::get('/',			'HomeController/index');
-Router::get('home/',		'HomeController/index');
-Router::get('home/index',	'HomeController/index');
-Router::get('home/start',	'HomeController/start');
 
 Router::get('jogo/index', 'GameController/index');
 Router::get('jogo/iniciarjogo', 'GameController/iniciarJogo');
