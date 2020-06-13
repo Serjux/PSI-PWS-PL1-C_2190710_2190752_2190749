@@ -4,9 +4,7 @@ use ArmoredCore\WebObjects\Data;
 use ArmoredCore\WebObjects\URL;
 \ArmoredCore\WebObjects\Layout::includeLayout('header');
 $engine = Data::get('ge');
-?>
 
-<?php
 if ($engine->getEstadoJogo() == 1) { ?>
     <a href="<?= URL::toRoute('jogo/rolardados') ?>">Rolar dados</a>
 <?php }
@@ -16,50 +14,31 @@ else if ($engine->getEstadoJogo() == 2) {
 ?>
 
 <div style="border: double; width: 40%">
+    <button class="btn btn-default" style="margin-right: 5.4%; font-size: 40px "> 1</button>
+    <button class="btn btn-default" style="margin-right: 5.4%; font-size: 40px"> 2</button>
+    <button class="btn btn-default" style="margin-right: 5.4%; font-size: 40px"> 3</button>
+    <button class="btn btn-default" style="margin-right: 5.4%; font-size: 40px"> 4</button>
+    <button class="btn btn-default" style="margin-right: 5.4%; font-size: 40px"> 5</button>
+    <button class="btn btn-default" style="margin-right: 5.4%; font-size: 40px"> 6</button>
+    <button class="btn btn-default" style="margin-right: 5.4%; font-size: 40px"> 7</button>
+    <button class="btn btn-default" style="margin-right: 5.4%; font-size: 40px"> 8</button>
+    <button class="btn btn-default" style="margin-right: 5.4%; font-size: 40px"> 9</button>
 
-        <button class="b_numero" style="margin-right: 5.4%; font-size: 40px "> 1</button>
+    <table border="2" width="50%" height="400px">
+        <div style="display:inline-block; text-align: center; align: center; width: 100%">
+        ameno
+        </div>
+    </table>
 
-        <button class="b_numero" style="margin-right: 5.4%; font-size: 40px"> 2</button>
-
-        <button class="b_numero" style="margin-right: 5.4%; font-size: 40px""> 3</button>
-
-        <button class="b_numero" style="margin-right: 5.4%; font-size: 40px""> 4</button>
-
-        <button class="b_numero" style="margin-right: 5.4%; font-size: 40px"> 5</button>
-
-        <button class="b_numero" style="margin-right: 5.4%; font-size: 40px"> 6</button>
-
-        <button class="b_numero" style="margin-right: 5.4%; font-size: 40px"> 7</button>
-
-        <button class="b_numero" style="margin-right: 5.4%; font-size: 40px"> 8</button>
-
-        <button class="b_numero" style="margin-right: 5.4%; font-size: 40px"> 9</button>
-
-
-<table border="2" width="50%" height="400px">
-<div style="display:inline-block; text-align: center; align: center; width: 100%">
-ameno
-</div>
-</table>
-
-    <button class="b_numero2" style="margin-right: 5.4%; font-size: 40px"> 1</button>
-
-    <button class="b_numero2" style="margin-right: 5.4%; font-size: 40px"> 2</button>
-
-    <button class="b_numero2" style="margin-right: 5.4%; font-size: 40px""> 3</button>
-
-    <button class="b_numero2" style="margin-right: 5.4%; font-size: 40px""> 4</button>
-
-    <button class="b_numero2" style="margin-right: 5.4%; font-size: 40px"> 5</button>
-
-    <button class="b_numero2" style="margin-right: 5.4%; font-size: 40px"> 6</button>
-
-    <button class="b_numero2" style="margin-right: 5.4%; font-size: 40px"> 7</button>
-
-    <button class="b_numero2" style="margin-right: 5.4%; font-size: 40px"> 8</button>
-
-    <button class="b_numero2" style="margin-right: 5.4%; font-size: 40px"> 9</button>
-
+    <button class="btn btn-default" style="margin-right: 5.4%; font-size: 40px"> 1</button>
+    <button class="btn btn-default" style="margin-right: 5.4%; font-size: 40px"> 2</button>
+    <button class="btn btn-default" style="margin-right: 5.4%; font-size: 40px"> 3</button>
+    <button class="btn btn-default" style="margin-right: 5.4%; font-size: 40px"> 4</button>
+    <button class="btn btn-default" style="margin-right: 5.4%; font-size: 40px"> 5</button>
+    <button class="btn btn-default" style="margin-right: 5.4%; font-size: 40px"> 6</button>
+    <button class="btn btn-default" style="margin-right: 5.4%; font-size: 40px"> 7</button>
+    <button class="btn btn-default" style="margin-right: 5.4%; font-size: 40px"> 8</button>
+    <button class="btn btn-default" style="margin-right: 5.4%; font-size: 40px"> 9</button>
 </div>
 
 </body>
