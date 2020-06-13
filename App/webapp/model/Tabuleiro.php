@@ -5,7 +5,7 @@ class Tabuleiro
 {
     private $dado;
     public $resultadoDado1, $resultadoDado2;
-    public $numerosBloqueioP1, $numeroBloqueioP2;
+    public $numerosBloqueioP1, $numerosBloqueioP2;
 
     public function __construct() {
         $this->dado = new Dado();
