@@ -9,19 +9,18 @@ class GameController
     }
 
     public function iniciarJogo() {
-
         if(!Session::has('gameEngine')) {
             $engine = new GameEngine();
         }
         else {
             $engine = Session::get('gameEngine');
-
         }
         $engine->iniciarJogo();
         Session::set('gameEngine', $engine);
 
         return View::make('game.tabuleiro', ['ge'=> $engine]);
     }
+
     public function rolarDados() {
         $engine = Session::get('gameEngine');
         $engine->rolarDados();
