@@ -26,12 +26,12 @@ use ArmoredCore\WebObjects\URL;?>
         </div>
 
         <ul class="nav navbar-nav navbar-left">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Pontuações Top 10</a></li>
+            <li><a href="<?= URL::toRoute('jogo/index') ?>">Home</a></li>
+            <li><a href="<?= URL::toRoute('jogo/scoreboard') ?>">Pontuações Top 10</a></li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Login</a></li>
+            <li><a href="<?= URL::toRoute('jogo/login') ?>"">Login</a></li>
             </li>
         </ul>
     </div>
