@@ -54,4 +54,8 @@ class GameController
 
         return View::make('game.perfil', ['pr' => $pontuacoesRecentes]);
     }
+
+    public function alteracoes() {
+        return View::make('game.alteracoes');
+    }
 }
