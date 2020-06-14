@@ -1,7 +1,9 @@
 <?php use ArmoredCore\WebObjects\URL;
 use ArmoredCore\WebObjects\Layout;
+use ArmoredCore\WebObjects\Data;
 
 Layout::includeLayout('header');
+$pontuacoesRecentes = Data::get('pr');
 ?>
     <div class="panel panel-default" style="font-family: 'Berlin Sans FB';font-size: 22px">
         <div class="panel-heading">Top 5 Pontuações</div>
@@ -9,11 +11,9 @@ Layout::includeLayout('header');
         <div class="panel-body">
             <p>Poderá visualizar os resultados mais recentes dos jogos realizados.</p>
             <h5>↓ Mais recente</h5>
-            <h5>| Jogador 1</h5>
-            <h5>| Jogador 2</h5>
-            <h5>| Jogador 3</h5>
-            <h5>| Jogador 4</h5>
-            <h5>| Jogador 5</h5>
+            <?php foreach ($pontuacoesRecentes as $pontuacao) { ?>
+                <h5><?= $pontuacao->datahora->format('d-m-Y H:i') ?> | <?= $pontuacao->score ?></h5>
+            <?php } ?>
             <h5>↓Mais Antigo</h5>
         </div>
 
