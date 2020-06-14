@@ -69,7 +69,7 @@ if(isset($GLOBALS['cachedPage'])){
 $conn = User::connection();
 Use Filisko\PDOplus\PDO;
 
-$pdoconn = new PDO('mysql:host=localhost;dbname=webapp', 'root', '', array(PDO::ATTR_PERSISTENT => true));
+$pdoconn = new PDO('mysql:host=localhost;dbname=shutthebox', 'root', '', array(PDO::ATTR_PERSISTENT => true));
 
 $db1Panel = new \Filisko\PDOplus\Tracy\BarPanel( $conn->connection );
 $db1Panel->title = "DB SQL";
