@@ -47,12 +47,17 @@ class GameController
         if(!Session::has('user')) {
             Redirect::toRoute('jogo/index');
         }
-        /* @var User $user */
         $user = Session::get('user');
 
         $pontuacoesRecentes = Score::find('all', array('conditions' => 'idutilizador='.$user->idutilizador, 'order' => 'datahora desc', 'limit' => 5));
 
         return View::make('game.perfil', ['pr' => $pontuacoesRecentes]);
+    }
+
+    public function melhor_pontuacao() {
+        $pontuacoestotais = Score::find('all' ,array('order' => 'score asc', 'limit' => 10));
+
+        return View::make('game.pontuacoes', ['mp' => $pontuacoestotais]);
     }
 
     public function alteracoes() {
