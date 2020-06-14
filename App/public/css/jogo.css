@@ -1,0 +1,33 @@
+.tabuleiro {
+    border: solid 2px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.botoes {
+    width: 100%;
+    text-align: center;
+}
+
+.centro {
+    width: 100%;
+    text-align: center;
+    margin-top: 10%;
+}
+
+.botaoTabuleiro {
+    margin: 15px;
+    font-size: 40px;
+}
+
+.meioTabuleiro {
+    display:inline-block;
+    text-align: center;
+    width: 100%
+}
+
+.dados {
+    display: inline-block;
+    margin: 0 auto;
+}

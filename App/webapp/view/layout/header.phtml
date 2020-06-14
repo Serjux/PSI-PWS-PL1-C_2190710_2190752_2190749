@@ -1,7 +1,8 @@
 <?php
 use ArmoredCore\WebObjects\Asset;
 use ArmoredCore\Facades\AssetBundler;
-use ArmoredCore\WebObjects\URL;?>
+use ArmoredCore\WebObjects\URL;
+?>
 <!doctype html>
 <html lang="pt">
 <head>
@@ -12,7 +13,8 @@ use ArmoredCore\WebObjects\URL;?>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <?=AssetBundler::css()?>
-    <link rel="stylesheet" href="<?= Asset::css('/bootstrap-theme.css')?>" media="screen" >
+    <link rel="stylesheet" href="<?= Asset::css('/bootstrap.css')?>" media="screen" >
+    <link rel="stylesheet" href="<?= Asset::css('/jogo.css') ?>">
 </head>
 <body>
 <nav class="navbar navbar-default">

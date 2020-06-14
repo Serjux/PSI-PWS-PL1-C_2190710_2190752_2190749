@@ -1,39 +1,43 @@
 <?php use ArmoredCore\WebObjects\URL;
+use ArmoredCore\WebObjects\Layout;
 
-\ArmoredCore\WebObjects\Layout::includeLayout('header');
+Layout::includeLayout('header');
 ?>
-<div>
-    <h3 style="color: gray">
-        Sign In
-    </h3>
-</div>
-<div style="margin auto; width: 100%; text-align: center; border: groove; display:inline-block">
-    <h4 style="font-family: 'Arial Rounded MT Bold'; font-size: 26px">
-        Realize login para a sua conta
-    </h4>
-    <h5 style="font-family: Bahnschrift; font-size: 20px">
-        Username: *
-        <input id="login" type="text" style="width: 400px">
-    </h5>
-    <h5 style="font-family: Bahnschrift; font-size: 20px">
-        Password: *
-        <input id="password" type="text" style="width: 400px">
-    </h5>
-    <div>
-        <h4>
+<div style="">
+    <div class="row">
+        <article class="col-xs-12 maincontent">
+            <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h3 class="thin text-center">Login</h3>
+                        <p class="text-center text-muted">Antes de poder jogar, tem que fazer login.</p>
+                        <hr>
 
-            <button class="btn btn-default" href="#"
-                    style="font-family: 'Arial MT'; font-size: 18px; display:inline-block">
-                Registrar
-            </button>
+                        <form>
+                            <div class="top-margin">
+                                <label>Username <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="top-margin">
+                                <label>Password <span class="text-danger">*</span></label>
+                                <input type="password" class="form-control">
+                            </div>
 
-            <button class="btn btn-default" href="#"
-                    style="font-family: 'Arial MT'; font-size: 18px; display:inline-block">
-                Sign In
-            </button>
+                            <hr>
 
-
-        </h4>
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <button class="btn btn-action" type="submit">Registar</button>
+                                </div>
+                                <div class="col-lg-4 text-right">
+                                    <button class="btn btn-action" type="submit">Login</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </article>
     </div>
 </div>
 
