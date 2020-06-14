@@ -42,4 +42,7 @@ class GameController
         return View::make('game.registo');
     }
 
+    public function perfil() {
+        return View::make('game.perfil');
+    }
 }

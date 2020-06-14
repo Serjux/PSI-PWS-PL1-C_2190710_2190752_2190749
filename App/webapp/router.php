@@ -20,6 +20,7 @@ Router::get('jogo/rolardados','GameController/rolarDados');
 Router::get('jogo/login', 'GameController/paginaLogin');
 Router::get('jogo/scoreboard', 'GameController/pontuacoes');
 Router::get('jogo/registo','GameController/registo');
+Router::get('jogo/perfil','GameController/perfil');
 
 Router::resource('users', 'UsersController');
 

@@ -1,0 +1,29 @@
+<?php use ArmoredCore\WebObjects\URL;
+use ArmoredCore\WebObjects\Layout;
+
+Layout::includeLayout('header');
+?>
+    <div class="panel panel-default" style="font-family: 'Berlin Sans FB';font-size: 22px">
+        <div class="panel-heading">Top 5 Pontuações</div>
+        <div id="utilizador" class="panel-heading">Nome: #Exemplo (Nome do utilizador)</div>
+        <div class="panel-body">
+            <p>Poderá visualizar os resultados mais recentes dos jogos realizados.</p>
+            <h5>↓ Mais recente</h5>
+            <h5>| Jogador 1</h5>
+            <h5>| Jogador 2</h5>
+            <h5>| Jogador 3</h5>
+            <h5>| Jogador 4</h5>
+            <h5>| Jogador 5</h5>
+            <h5>↓Mais Antigo</h5>
+        </div>
+
+        <ul class="list-group">
+            <li id="pontuacao1" class="panel panel-success">DATA | Utilizador | Pontuação</li>
+            <li id="pontuacao2" class="panel panel-success">DATA | Utilizador | Pontuação</li>
+            <li id="pontuacao3" class="panel panel-success">DATA | Utilizador | Pontuação</li>
+            <li id="pontuacao4" class="panel panel-success">DATA | Utilizador | Pontuação</li>
+            <li id="pontuacao5" class="panel panel-success">DATA | Utilizador | Pontuação</li>
+        </ul>
+    </div>
+
+<?php Layout::includeLayout('footer'); ?>
