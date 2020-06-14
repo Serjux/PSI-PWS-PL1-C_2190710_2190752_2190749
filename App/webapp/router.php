@@ -21,7 +21,7 @@ Router::get('jogo/login', 'GameController/paginaLogin');
 Router::get('jogo/scoreboard', 'GameController/pontuacoes');
 Router::get('jogo/registo','GameController/registo');
 
-
+Router::resource('users', 'UsersController');
 
 
 /************** End of URLEncoder Routing Rules ************************************/

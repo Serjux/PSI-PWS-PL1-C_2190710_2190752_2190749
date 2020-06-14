@@ -1,6 +1,7 @@
 <?php use ArmoredCore\WebObjects\URL;
+use ArmoredCore\WebObjects\Layout;
 
-\ArmoredCore\WebObjects\Layout::includeLayout('header');
+Layout::includeLayout('header');
 ?>
 <h1 style="font-family: 'Bauhaus 93'">
     Top 10
@@ -76,6 +77,4 @@
     </div>
 </div>
 
-</body>
-</html>
-
+<?php Layout::includeLayout('footer'); ?>

@@ -65,8 +65,8 @@ if(isset($GLOBALS['cachedPage'])){
     $profiler = new Netpromotion\Profiler\Adapter\TracyBarAdapter();
     Debugger::getBar()->addPanel($profiler);
 
-/*
-$conn = Book::connection();
+
+$conn = User::connection();
 Use Filisko\PDOplus\PDO;
 
 $pdoconn = new PDO('mysql:host=localhost;dbname=webapp', 'root', '', array(PDO::ATTR_PERSISTENT => true));
@@ -75,7 +75,6 @@ $db1Panel = new \Filisko\PDOplus\Tracy\BarPanel( $conn->connection );
 $db1Panel->title = "DB SQL";
 Debugger::getBar()->addPanel( $db1Panel );
 
-*/
 
 //$html5Parser = new Kdyby\Extension\Diagnostics\HtmlValidator\ValidatorPanel();
 //Debugger::getBar()->addPanel($html5Parser);

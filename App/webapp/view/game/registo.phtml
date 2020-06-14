@@ -1,6 +1,8 @@
-<?php use ArmoredCore\WebObjects\URL;
+<?php
+use ArmoredCore\WebObjects\Layout;
+use ArmoredCore\WebObjects\URL;
 
-\ArmoredCore\WebObjects\Layout::includeLayout('header');
+Layout::includeLayout('header');
 ?>
 <div style="">
     <div class="row">
@@ -12,42 +14,44 @@
                         <p class="text-center text-muted">Realize o registo antes de começar a jogar.</p>
                         <hr>
 
-                        <form>
+                        <form method="post" action="<?= URL::toRoute('users/registo') ?>">
+                            <div class="row">
+                                <div class="top-margin col-lg-6">
+                                    <label>Nome <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="nome">
+                                </div>
+
+                                <div class="top-margin col-lg-6">
+                                    <label>Apelido <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="apelido">
+                                </div>
+                            </div>
+
+                            <div class="top-margin">
+                                <label>Data de nascimento <span class="text-danger">*</span></label>
+                                <input type="date" class="form-control" name="datanasc">
+                            </div>
+
                             <div class="top-margin">
                                 <label>Username <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" name="username">
                             </div>
-                            <div class="top-margin">
-                                <label>Password <span class="text-danger">*</span></label>
-                                <input type="password" class="form-control">
-                            </div>
+
                             <div class="top-margin">
                                 <label>Email <span class="text-danger">*</span></label>
-                                <input type="email" class="form-control">
+                                <input type="email" class="form-control" name="email">
                             </div>
 
                             <div class="top-margin">
-                                <label>Nivel <span class="text-danger">*</span></label>
-                                <input type="nivel" class="form-control">
+                                <label>Password <span class="text-danger">*</span></label>
+                                <input type="password" class="form-control" name="password">
                             </div>
-
-                            <div class="top-margin">
-                                <label>Nome <span class="text-danger">*</span></label>
-                                <input type="nome" class="form-control">
-                            </div>
-
-                            <div class="top-margin">
-                                <label>Apelido <span class="text-danger">*</span></label>
-                                <input type="apelido" class="form-control">
-                            </div>
-
 
                             <hr>
 
                             <div class="row">
-
-                                <div class="col-lg-1 text-right">
-                                    <button class="btn btn-action" type="submit">Registar</button>
+                                <div class="col-lg-1 text-center">
+                                    <button class="btn btn-primary" type="submit">Registar</button>
                                 </div>
                             </div>
                         </form>
@@ -57,6 +61,4 @@
         </article>
     </div>
 </div>
-</body>
-</html>
-
+<?php Layout::includeLayout('footer'); ?>

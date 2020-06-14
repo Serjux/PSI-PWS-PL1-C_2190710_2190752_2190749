@@ -1,10 +1,7 @@
 <?php use ArmoredCore\WebObjects\URL;
-\ArmoredCore\WebObjects\Layout::includeLayout('header');
+use ArmoredCore\WebObjects\Layout;
+
+Layout::includeLayout('header');
 ?>
-
-
-
-
 <h1><a href="<?= URL::toRoute('jogo/iniciarjogo') ?>">Iniciar Jogo</a></h1>
-</body>
-</html>
+<?php Layout::includeLayout('footer'); ?>

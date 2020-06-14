@@ -21,8 +21,6 @@ Router::get('plano/index','PlanoController/index');
 Router::post('plano/show','PlanoController/show');
 
 
-
-
 Router::get('home/start','HomeController/start');
 Router::get('home/login','HomeController/login');
 Router::get('home/worksheet','HomeController/worksheet');

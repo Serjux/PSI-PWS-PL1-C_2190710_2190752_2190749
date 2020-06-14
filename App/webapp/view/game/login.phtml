@@ -13,14 +13,14 @@ Layout::includeLayout('header');
                         <p class="text-center text-muted">Antes de poder jogar, tem que fazer login.</p>
                         <hr>
 
-                        <form>
+                        <form method="post" action="<?= URL::toRoute('users/login') ?>">
                             <div class="top-margin">
                                 <label>Username <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" name="username" required>
                             </div>
                             <div class="top-margin">
                                 <label>Password <span class="text-danger">*</span></label>
-                                <input type="password" class="form-control">
+                                <input type="password" class="form-control" name="password" required>
                             </div>
 
                             <hr>
@@ -41,7 +41,4 @@ Layout::includeLayout('header');
     </div>
 </div>
 
-
-</body>
-</html>
-
+<?php Layout::includeLayout('footer'); ?>
