@@ -1,80 +1,27 @@
-<?php use ArmoredCore\WebObjects\URL;
+<?php use ArmoredCore\WebObjects\Data;
+use ArmoredCore\WebObjects\URL;
 use ArmoredCore\WebObjects\Layout;
 
 Layout::includeLayout('header');
+$melhorespontuacoes = Data::get('mp');
+$i = 0;
 ?>
-<h1 style="font-family: 'Bauhaus 93'">
-    Top 10
-</h1>
-<div class="panel panel-success">
-    <div class="panel-heading">
-        <h3>
-            1º Nome | Pontuação
-        </h3>
+    <h1 style="font-family: 'Bauhaus 93'">
+        Top 10
+    </h1>
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <?php foreach ($melhorespontuacoes as $pontuacao) {
+                $i += 1;
+                $user = User::find($pontuacao->idutilizador);
+           ?>
+            <h3>
+                <?=$i?> | <?=$user->username ?> | <?= $pontuacao->score?>
+            </h3>
+            <?php
+            }?>
+        </div>
+
     </div>
-</div>
-<div class="panel panel-success">
-    <div class="panel-heading">
-        <h3>
-            2º Nome | Pontuação
-        </h3>
-    </div>
-</div>
-<div class="panel panel-success">
-    <div class="panel-heading">
-        <h3>
-            3º Nome | Pontuação
-        </h3>
-    </div>
-</div>
-<div class="panel panel-warning">
-    <div class="panel-heading">
-        <h3>
-            4º Nome | Pontuação
-        </h3>
-    </div>
-</div>
-<div class="panel panel-warning">
-    <div class="panel-heading">
-        <h3>
-            5º Nome | Pontuação
-        </h3>
-    </div>
-</div>
-<div class="panel panel-warning">
-    <div class="panel-heading">
-        <h3>
-            6º Nome | Pontuação
-        </h3>
-    </div>
-</div>
-<div class="panel panel-warning">
-    <div class="panel-heading">
-        <h3>
-            7º Nome | Pontuação
-        </h3>
-    </div>
-</div>
-<div class="panel panel-danger">
-    <div class="panel-heading">
-        <h3>
-            8º Nome | Pontuação
-        </h3>
-    </div>
-</div>
-<div class="panel panel-danger">
-    <div class="panel-heading">
-        <h3>
-            9º Nome | Pontuação
-        </h3>
-    </div>
-</div>
-<div class="panel panel-danger">
-    <div class="panel-heading">
-        <h3>
-            10º Nome | Pontuação
-        </h3>
-    </div>
-</div>
 
 <?php Layout::includeLayout('footer'); ?>
