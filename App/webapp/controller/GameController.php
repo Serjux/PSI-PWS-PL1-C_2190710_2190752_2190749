@@ -33,8 +33,13 @@ class GameController
     public function paginaLogin() {
         return View::make('game.login');
     }
+
     public function pontuacoes() {
         return View::make('game.pontuacoes');
+    }
+
+    public function registo() {
+        return View::make('game.registo');
     }
 
 }
