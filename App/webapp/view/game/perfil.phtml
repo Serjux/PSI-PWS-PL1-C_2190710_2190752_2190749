@@ -5,12 +5,11 @@ use ArmoredCore\WebObjects\Data;
 
 Layout::includeLayout('header');
 $pontuacoesRecentes = Data::get('pr');
+$user = Session::get('user');
 ?>
     <div class="panel panel-default" style="font-family: 'Berlin Sans FB';font-size: 22px">
         <div class="panel-heading">Top 5 Pontuações</div>
-        <?php
-            $user = Session::get('user'); ?>
-            <div id="utilizador" class="panel-heading">Nome: <?= $user->username ?> </div>
+            <div id="utilizador" class="panel-heading">Nome: <?= $user->username ?> (<?= $user->nomecompleto ?>)</div>
 
         <div class="panel-body">
             <p>Poderá visualizar os resultados mais recentes dos jogos realizados.</p>
@@ -20,14 +19,6 @@ $pontuacoesRecentes = Data::get('pr');
             <?php } ?>
             <h5>↓Mais Antigo</h5>
         </div>
-
-        <ul class="list-group">
-            <li id="pontuacao1" class="panel panel-success">DATA | Utilizador | Pontuação</li>
-            <li id="pontuacao2" class="panel panel-success">DATA | Utilizador | Pontuação</li>
-            <li id="pontuacao3" class="panel panel-success">DATA | Utilizador | Pontuação</li>
-            <li id="pontuacao4" class="panel panel-success">DATA | Utilizador | Pontuação</li>
-            <li id="pontuacao5" class="panel panel-success">DATA | Utilizador | Pontuação</li>
-        </ul>
     </div>
 
 <?php Layout::includeLayout('footer'); ?>

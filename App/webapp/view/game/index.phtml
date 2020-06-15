@@ -1,7 +1,14 @@
 <?php use ArmoredCore\WebObjects\URL;
 use ArmoredCore\WebObjects\Layout;
+use ArmoredCore\WebObjects\Session;
 
 Layout::includeLayout('header');
+
+if(Session::has('user')) {
 ?>
-<h1><a href="<?= URL::toRoute('jogo/iniciarjogo') ?>">Iniciar Jogo</a></h1>
-<?php Layout::includeLayout('footer'); ?>
+    <h1><a href="<?= URL::toRoute('jogo/iniciarjogo') ?>">Iniciar Jogo</a></h1>
+<?php } else { ?>
+    <p>Tem que fazer login antes de poder jogar Shut the box.</p>
+<?php }
+Layout::includeLayout('footer');
+?>

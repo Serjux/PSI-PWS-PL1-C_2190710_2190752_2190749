@@ -36,7 +36,8 @@ class GameController
     }
 
     public function pontuacoes() {
-        return View::make('game.pontuacoes');
+        $pontuacoestotais = Score::find('all', array('order' => 'score asc', 'limit' => 10));
+        return View::make('game.pontuacoes', ['mp' => $pontuacoestotais]);
     }
 
     public function registo() {
@@ -54,25 +55,23 @@ class GameController
         return View::make('game.perfil', ['pr' => $pontuacoesRecentes]);
     }
 
-
-    public function melhor_pontuacao() {
-        $pontuacoestotais = Score::find('all' ,array('order' => 'score asc', 'limit' => 10));
-
-        return View::make('game.pontuacoes', ['mp' => $pontuacoestotais]);
-    }
-
     public function alteracoes() {
-        return View::make('game.alteracoes');
+        if(!Session::has('user')) {
+            Redirect::toRoute('jogo/index');
+        }
+        $user = Session::get('user');
+
+        return View::make('game.alteracoes', ['dd' => $user]);
     }
 
     public function gestao() {
+        if(!Session::has('user')) {
+            Redirect::toRoute('jogo/index');
+        }
         $user = Session::get('user');
-        $nivel = User::find("$user");
-
-        return ['nv' => $nivel];
-    }
-
-    public function gestor() {
+        if($user->nivelacesso != 2) {
+            Redirect::toRoute('jogo/index');
+        }
         return View::make('game.gestor');
     }
 }

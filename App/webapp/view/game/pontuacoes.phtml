@@ -9,19 +9,28 @@ $i = 0;
     <h1 style="font-family: 'Bauhaus 93'">
         Top 10
     </h1>
-    <div class="panel panel-success">
-        <div class="panel-heading">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Posição</th>
+                <th>Jogador</th>
+                <th>Pontos</th>
+                <th>Data/hora</th>
+            </tr>
+        </thead>
+        <tbody>
             <?php foreach ($melhorespontuacoes as $pontuacao) {
                 $i += 1;
-                $user = User::find($pontuacao->idutilizador);
-           ?>
-            <h3>
-                <?=$i?> | <?=$user->username ?> | <?= $pontuacao->score?>
-            </h3>
-
-        </div>
-        <?php
+                $user = User::find($pontuacao->idutilizador); ?>
+                <tr class="success">
+                    <td><?= $i ?></td>
+                    <td><?= $user->username ?></td>
+                    <td><?= $pontuacao->score ?></td>
+                    <td><?= $pontuacao->datahora->format('d-m-Y H:i') ?></td>
+                </tr>
+                <?php
             }?>
-    </div>
-
+        </tbody>
+    </table>
 <?php Layout::includeLayout('footer'); ?>

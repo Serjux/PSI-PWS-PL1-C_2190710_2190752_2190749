@@ -6,26 +6,35 @@ use ArmoredCore\WebObjects\Data;
 Layout::includeLayout('header');
 
 ?>
-    <div class="panel panel-default" style="font-family: 'Berlin Sans FB';font-size: 22px">
-        <div class="panel-heading">Top 5 Pontuações</div>
-
-
-            <div id="utilizador" class="panel-heading">Nome: </div>
-
-        <div class="panel-body">
-            <p>Poderá visualizar os resultados mais recentes dos jogos realizados.</p>
-            <h5>↓ Mais recente</h5>
-
-            <h5>↓Mais Antigo</h5>
-        </div>
-
-        <ul class="list-group">
-            <li id="pontuacao1" class="panel panel-success">DATA | Utilizador | Pontuação</li>
-            <li id="pontuacao2" class="panel panel-success">DATA | Utilizador | Pontuação</li>
-            <li id="pontuacao3" class="panel panel-success">DATA | Utilizador | Pontuação</li>
-            <li id="pontuacao4" class="panel panel-success">DATA | Utilizador | Pontuação</li>
-            <li id="pontuacao5" class="panel panel-success">DATA | Utilizador | Pontuação</li>
-        </ul>
-    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome Real</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Data de nascimento</th>
+                <th>Tipo de utilizador</th>
+                <th>Ação</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php foreach (User::all() as $user) { ?>
+            <tr>
+                <td><?= $user->idutilizador ?></td>
+                <td><?= $user->nomecompleto ?></td>
+                <td><?= $user->username ?></td>
+                <td><?= $user->email ?></td>
+                <td><?= $user->datanasc->format('d-m-Y') ?></td>
+                <td><?= $user->nivelacesso == 2 ? 'Administrador' : 'Jogador' ?></td>
+                <?php if($user->bloqueado == 0) { ?>
+                    <td><a href="<?= URL::toRoute('users/bloquear', $user->idutilizador) ?>" class="btn btn-danger">Bloquear</a></td>
+                <?php } else { ?>
+                    <td><a href="<?= URL::toRoute('users/bloquear', $user->idutilizador) ?>" class="btn btn-primary">Desbloquear</a></td>
+                <?php } ?>
+            </tr>
+            <?php } ?>
+        </tbody>
+    </table>
 
 <?php Layout::includeLayout('footer'); ?>

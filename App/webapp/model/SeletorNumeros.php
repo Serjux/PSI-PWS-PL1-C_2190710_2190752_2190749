@@ -6,17 +6,19 @@ class SeletorNumeros
     private $numerosSelecionados = array();
 
     public function validateNumber($userNumber, $numerosBloqueio) {
-        if($numerosBloqueio[$userNumber] == true) {
+        return !$numerosBloqueio[$userNumber];
+        /*if($numerosBloqueio[$userNumber] == true) {
             return false;
         }
         else {
             return true;
-        }
+        }*/
     }
 
     public function updateSelection($userNumber) {
         if(in_array($userNumber, $this->numerosSelecionados) == true) {
-            // Eliminar o usernumber do vetor this->numerosSelecionados
+            $indice = array_search($userNumber, $this->numerosSelecionados);
+            unset($this->numerosSelecionados[$indice]);
         }
         else {
             array_push($this->numerosSelecionados);
@@ -30,12 +32,13 @@ class SeletorNumeros
             $soma += $numero;
         }
 
-        if($soma == $totalDados) {
+        return ($soma == $totalDados);
+        /*if($soma == $totalDados) {
             return true;
         }
         else {
             return false;
-        }
+        }*/
     }
 
     public function clearSelection() {

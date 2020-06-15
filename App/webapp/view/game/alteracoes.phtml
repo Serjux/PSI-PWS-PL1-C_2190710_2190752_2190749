@@ -3,67 +3,64 @@
 use ArmoredCore\WebObjects\Layout;
 use ArmoredCore\WebObjects\Session;
 use ArmoredCore\WebObjects\URL;
+use ArmoredCore\WebObjects\Data;
 
 Layout::includeLayout('header');
+$user = Data::get('dd');
 ?>
     <div style="">
-    <div class="row">
-    <article class="col-xs-12 maincontent">
-    <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-    <div class="panel panel-default">
-    <div class="panel-body">
-    <h3 class="thin text-center">Altere as suas credenciais</h3>
-    <p class="text-center text-muted">Poderá alterar todas as suas credenciais menos o username.</p>
-    <hr>
-<?php if (Session::has('user')) {
-    $user = Session::get('user'); ?>
-    <form method="post" action="<?= URL::toRoute('users/registo') ?>">
         <div class="row">
-            <div class="top-margin col-lg-6">
-                <label>Username: <?= $user->username ?> <span class="text-danger"></span></label>
-            </div>
+            <article class="col-xs-12 maincontent">
+                <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h3 class="thin text-center">Altere as suas credenciais</h3>
+                            <p class="text-center text-muted">Poderá alterar todas as suas credenciais menos o
+                                username.</p>
+                            <hr>
+                            <form method="post" action="<?= URL::toRoute('users/alterar') ?>">
+                                <div class="row">
+                                    <div class="top-margin col-lg-6">
+                                        <label>Username: <?= $user->username ?> <span
+                                                    class="text-danger"></span></label>
+                                    </div>
+                                </div>
+
+                                <div class="top-margin">
+                                    <label>Nome <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="nome"
+                                           value="<?= $user->nomecompleto ?>">
+                                </div>
+
+                                <div class="top-margin">
+                                    <label>Data de nascimento <span class="text-danger">*</span></label>
+                                    <input type="date" class="form-control" name="datanasc"
+                                           value="<?= $user->datanasc->format('Y-m-d') ?>">
+                                </div>
+
+
+                                <div class="top-margin">
+                                    <label>Email <span class="text-danger">*</span></label>
+                                    <input type="email" class="form-control" name="email" value="<?= $user->email ?>">
+                                </div>
+
+                                <div class="top-margin">
+                                    <label>Password <span class="text-danger">*</span></label>
+                                    <input type="password" class="form-control" name="password">
+                                </div>
+
+                                <hr>
+
+                                <div class="row">
+                                    <div class="col-lg-1 text-center">
+                                        <button class="btn btn-primary" type="submit">Alterar credenciais</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </article>
         </div>
-        <div class="row">
-            <div class="top-margin col-lg-6">
-                <label>Nome <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" name="nome">
-            </div>
-
-            <div class="top-margin col-lg-6">
-                <label>Apelido <span class="text-danger">*</span></label>
-                <input type="text" class="form-control" name="apelido">
-            </div>
-        </div>
-
-        <div class="top-margin">
-            <label>Data de nascimento <span class="text-danger">*</span></label>
-            <input type="date" class="form-control" name="datanasc">
-        </div>
-
-
-        <div class="top-margin">
-            <label>Email <span class="text-danger">*</span></label>
-            <input type="email" class="form-control" name="email">
-        </div>
-
-        <div class="top-margin">
-            <label>Password <span class="text-danger">*</span></label>
-            <input type="password" class="form-control" name="password">
-        </div>
-
-        <hr>
-
-        <div class="row">
-            <div class="col-lg-1 text-center">
-                <button class="btn btn-primary" type="submit">Alterar credenciais</button>
-            </div>
-        </div>
-    </form>
     </div>
-    </div>
-    </div>
-    </article>
-    </div>
-    </div>
-<?php } ?>
 <?php Layout::includeLayout('footer'); ?>
