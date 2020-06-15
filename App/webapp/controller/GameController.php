@@ -54,6 +54,7 @@ class GameController
         return View::make('game.perfil', ['pr' => $pontuacoesRecentes]);
     }
 
+
     public function melhor_pontuacao() {
         $pontuacoestotais = Score::find('all' ,array('order' => 'score asc', 'limit' => 10));
 
@@ -62,5 +63,16 @@ class GameController
 
     public function alteracoes() {
         return View::make('game.alteracoes');
+    }
+
+    public function gestao() {
+        $user = Session::get('user');
+        $nivel = User::find("$user");
+
+        return ['nv' => $nivel];
+    }
+
+    public function gestor() {
+        return View::make('game.gestor');
     }
 }

@@ -22,7 +22,7 @@ Router::get('jogo/scoreboard', 'GameController/pontuacoes');
 Router::get('jogo/registo','GameController/registo');
 Router::get('jogo/perfil','GameController/perfil');
 Router::get('jogo/alteracoes_perfil', 'GameController/alteracoes');
-
+Router::get('jogo/gestordaconta','GameController/gestor');
 Router::resource('users', 'UsersController');
 
 
