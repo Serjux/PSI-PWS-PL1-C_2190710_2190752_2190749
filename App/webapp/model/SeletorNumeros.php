@@ -16,7 +16,7 @@ class SeletorNumeros
     }
 
     public function updateSelection($userNumber) {
-        if(in_array($userNumber, $this->numerosSelecionados) == true) {
+        if($this->selectionHasNumber($userNumber)) {
             $indice = array_search($userNumber, $this->numerosSelecionados);
             unset($this->numerosSelecionados[$indice]);
         }

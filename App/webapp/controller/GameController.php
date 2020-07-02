@@ -25,11 +25,12 @@ class GameController
     public function rolarDados() {
         $engine = Session::get('gameEngine');
         $engine->rolarDados();
-        $engine->updateEstadoJogo();
+        $engine->updateEstadoJogo(2);
         Session::set('gameEngine', $engine);
 
         return View::make('game.tabuleiro', ['ge'=> $engine]);
     }
+
     //Interligações para as paginas
     public function paginaLogin() {
         return View::make('game.login');

@@ -17,9 +17,10 @@ class GameEngine
         return $this->estadoJogo;
     }
 
-    public function updateEstadoJogo() {
-        $this->estadoJogo += 1;
+    public function updateEstadoJogo($estado) {
+        $this->estadoJogo = $estado;
     }
+
     public function rolarDados() {
         //Inicializar os dados
         $this->tabuleiro->rolarDados();
