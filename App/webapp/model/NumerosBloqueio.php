@@ -29,18 +29,23 @@ class NumerosBloqueio
     public function checkFinalJogada($numeros, $somaDados)
     {
         switch ($somaDados) {
+            case 2:
+                if ($this->numerosBloqueio['2']) {
+                    return true;
+                }
+                break;
             case 3:
                 if ($this->numerosBloqueio['3'] && ($this->numerosBloqueio['2'] && $this->numerosBloqueio['1'])) {
                     return true;
                 }
                 break;
             case 4:
-                if ($this->numerosBloqueio['4'] && ($this->numerosBloqueio['3']&& $this->numerosBloqueio['1'])) {
+                if ($this->numerosBloqueio['4'] && ($this->numerosBloqueio['3'] && $this->numerosBloqueio['1'])) {
                     return true;
                 }
                 break;
             case 5:
-                if (($this->numerosBloqueio['1']  && $this->numerosBloqueio['4']) && ($this->numerosBloqueio['3'] && $this->numerosBloqueio['2']) && $this->numerosBloqueio['5']) {
+                if (($this->numerosBloqueio['1'] && $this->numerosBloqueio['4']) && ($this->numerosBloqueio['3'] && $this->numerosBloqueio['2']) && $this->numerosBloqueio['5']) {
                     return true;
                 }
                 break;
