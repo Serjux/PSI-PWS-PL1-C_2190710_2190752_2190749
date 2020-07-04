@@ -25,4 +25,8 @@ class GameEngine
         //Inicializar os dados
         $this->tabuleiro->rolarDados();
     }
+    public function verificarNumeroSelecionado($numeroDados) {
+        //Estado de jogo 2.1, selecionamento após a rotação dos dados
+
+    }
 }
