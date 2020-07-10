@@ -43,6 +43,8 @@ class SeletorNumeros
 
     public function clearSelection() {
         // Remover todos os elementos do vetor this->numerosSelecionados
+        unset($this->numerosSelecionados);
+        $this->numerosSelecionados = array();
     }
 
     public function selectionHasNumber($number) {
