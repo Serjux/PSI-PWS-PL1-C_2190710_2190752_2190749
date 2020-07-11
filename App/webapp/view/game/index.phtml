@@ -1,14 +1,42 @@
-<?php use ArmoredCore\WebObjects\URL;
+<?php use ArmoredCore\WebObjects\Asset;
+use ArmoredCore\WebObjects\URL;
 use ArmoredCore\WebObjects\Layout;
 use ArmoredCore\WebObjects\Session;
 
 Layout::includeLayout('header');
 
-if(Session::has('user')) {
-?>
-    <h1><a href="<?= URL::toRoute('jogo/iniciarjogo') ?>">Iniciar Jogo</a></h1>
+if (Session::has('user')) {
+    ?>
+    <div align="center" style="font-size: 18px">
+        <h2>Regras:</h2>
+        <p>No início do jogo todos os números estão desbloqueados, o utilizador deverá primeiramente rodar os dados de
+            6</p>
+        <p> para obter a soma dos dados. Essa soma é possível entre 2 e 12. Após obter a soma dos dados o utilizador
+            deverá</p>
+        <p>escolher entre os números de 1 à 9 para que os números que o utilizador escolheu sejam iguais a soma dos
+            dados.</p>
+        <p>O utilizador não pode escolher o mesmo número duas vezes, após o número ter sido selecionado uma vez, ele
+            ficará</p>
+        <p>bloqueado. O jogo só termina após o utilizador não conseguir mais bloquear qualquer numero, ou seja, caso
+            não</p>
+        <p>tenha números disponíveis para obter a soma dos dados.</p>
+        </br>
+        <h4>Caso pretenda iniciar um novo jogo, selecione a hiperligação abaixo</h4>
+    </div>
+    <div align="center">
+        <img width="50px" height="50px" src="<?= Asset::image('arrow_down.png') ?>">
+        <h1><a href="<?= URL::toRoute('jogo/iniciarjogo') ?>">Iniciar Jogo</a></h1>
+        <img width="500" height="300px" src="<?=Asset::image('jogo.jpg')?>">
+    </div>
+
 <?php } else { ?>
-    <p>Tem que fazer login antes de poder jogar Shut the box.</p>
+    <div align="right">
+        <img width="50px" height="50px" src="<?= Asset::image('arrow_up.png') ?>">
+    </div>
+    <div id="index_login" align="center">
+        <h3><p>Tem que fazer login antes de poder jogar Shut the box.</p></h3>
+        <h4><p>Para realizar o login dirija-se para o "Login" no canto superior direito.</p></h4>
+    </div>
 <?php }
 Layout::includeLayout('footer');
 ?>

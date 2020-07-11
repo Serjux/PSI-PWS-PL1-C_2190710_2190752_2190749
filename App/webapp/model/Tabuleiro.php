@@ -19,11 +19,15 @@ class Tabuleiro
     }
 
     public function checkFinalJogadaP1($soma) {
-
+        if (checkFinalJogada($this->numerosBloqueioP1, $soma) == false ){
+            //Passa para o jogador 2
+        }
     }
 
     public function checkFinalJogadaP2($soma) {
-
+        if (checkFinalJogada($this->numerosBloqueioP1, $soma) == false ){
+            //Passa para o jogador 2
+        }
     }
 
     public function checkFinalJogo($soma) {

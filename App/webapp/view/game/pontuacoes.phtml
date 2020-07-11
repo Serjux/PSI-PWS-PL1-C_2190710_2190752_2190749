@@ -6,6 +6,9 @@ Layout::includeLayout('header');
 $melhorespontuacoes = Data::get('mp');
 $i = 0;
 ?>
+    <div style="font-size: 17px; font-family: Arial">
+        <p>Aqui poderá verificar a posição global dos scores, comparando quais os utilizadores que estão em primeiro lugar.</p>
+    </div>
     <h1 style="font-family: 'Bauhaus 93'">
         Top 10
     </h1>
@@ -33,4 +36,6 @@ $i = 0;
             }?>
         </tbody>
     </table>
+        </br>
+
 <?php Layout::includeLayout('footer'); ?>
