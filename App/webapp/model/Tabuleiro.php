@@ -59,10 +59,10 @@ class Tabuleiro
         $pontos = 0;
 
         if($this->getVencedor() == 1) {
-            $pontos = $this->numerosBloqueioP2->getSomaNumerosBloqueados() - $this->numerosBloqueioP1->getSomaNumerosBloqueados();
+            $pontos = $this->numerosBloqueioP1->getSomaNumerosBloqueados() - $this->numerosBloqueioP2->getSomaNumerosBloqueados();
         }
         else if($this->getVencedor() == 2) {
-            $pontos = $this->numerosBloqueioP1->getSomaNumerosBloqueados() - $this->numerosBloqueioP2->getSomaNumerosBloqueados();
+            $pontos = $this->numerosBloqueioP2->getSomaNumerosBloqueados() - $this->numerosBloqueioP1->getSomaNumerosBloqueados();
         }
 
         return $pontos;
