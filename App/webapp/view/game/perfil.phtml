@@ -7,7 +7,7 @@ use ArmoredCore\WebObjects\Asset;
 
 Layout::includeLayout('header');
 $pontuacoesRecentes = Data::get('pr');
-$user = Session::get('user');
+$user = Data::get('user');
 /* @var User $user */
 ?>
     <div class="">

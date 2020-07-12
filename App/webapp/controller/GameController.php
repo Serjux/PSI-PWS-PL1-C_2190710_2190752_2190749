@@ -93,10 +93,11 @@ class GameController
         return View::make('game.registo');
     }
 
-    public function perfil($user) {
-        $pontuacoesRecentes = Score::find('all', array('conditions' => 'idutilizador='.$user, 'order' => 'datahora desc'));
+    public function perfil($userid) {
+        $pontuacoesRecentes = Score::find('all', array('conditions' => 'idutilizador='.$userid, 'order' => 'datahora desc'));
+        $user = User::find($userid);
 
-        return View::make('game.perfil', ['pr' => $pontuacoesRecentes]);
+        return View::make('game.perfil', ['pr' => $pontuacoesRecentes, 'user' => $user]);
     }
 
     public function alteracoes() {
