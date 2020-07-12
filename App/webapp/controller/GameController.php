@@ -25,11 +25,14 @@ class GameController
     public function rolarDados() {
         $engine = Session::get('gameEngine');
 
-        $engine->rolarDados();
+        if($engine->getEstadoJogo() != 2 && $engine->getEstadoJogo() != 4) {
+            $engine->rolarDados();
+        }
+
         if($engine->getEstadoJogo() == 1) {
             $engine->updateEstadoJogo(2);
         }
-        else {
+        else if($engine->getEstadoJogo() == 3) {
             $engine->updateEstadoJogo(4);
         }
 
