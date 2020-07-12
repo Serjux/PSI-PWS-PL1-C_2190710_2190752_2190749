@@ -1,5 +1,6 @@
 <?php
 
+use ArmoredCore\Facades\Router;
 use ArmoredCore\WebObjects\Asset;
 use ArmoredCore\WebObjects\Data;
 use ArmoredCore\WebObjects\URL;
@@ -7,13 +8,17 @@ use ArmoredCore\WebObjects\Layout;
 
 Layout::includeLayout('header');
 $engine = Data::get('ge');
+unset($selecionado);
+$selecionado = array();
+
 ?>
 
 <div class="centro">
     <div class="tabuleiro">
         <div class="botoes">
             <?php for($i = 1; $i <= 9; $i++) { ?>
-                <button class="btn btn-default botaoTabuleiro"><?= $i ?></button>
+                    <a href="<?= URL::toRoute('jogo/rolardados',$i)?> <?php $selecionado[$i] = true;?>"class="btn btn-default botaoTabuleiro"name="botao<?=$i?>"><?= $i ?></button>
+                </a>
             <?php } ?>
         </div>
 
@@ -30,7 +35,8 @@ $engine = Data::get('ge');
 
         <div class="botoes">
             <?php for($i = 1; $i <= 9; $i++) { ?>
-                <button class="btn btn-default botaoTabuleiro"><?= $i ?></button>
+                <a href="<?= URL::toRoute('jogo/rolardados',$i) ?>"class="btn btn-default botaoTabuleiro" name="botao<?=$i?>"><?= $i ?></button>
+                </a>
             <?php } ?>
         </div>
     </div>
@@ -43,6 +49,15 @@ $engine = Data::get('ge');
             <img src="<?= Asset::image($engine->tabuleiro->resultadoDado2 . '.png')?>">
             <p>À espera da jogada...</p>
         <?php } ?>
+        <?php //verificação do array
+        for($p=1; $p<=9; $p++) {
+            if($selecionado[$p] == true) {
+                echo '<style> .botao'.$p.'{ background-color: blue; }</style>';
+            }
+
+}
+        var_dump($selecionado);
+        ?>
     </div>
 </div>
 
