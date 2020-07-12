@@ -1,21 +1,23 @@
 <?php
 
+use ArmoredCore\Facades\AssetBundler;
 use ArmoredCore\WebObjects\Asset;
 
 ?>
 <?= ArmoredCore\Facades\AssetBundler::js() ?>
+<?=AssetBundler::css()?>
+
 </body>
-<div style=" opacity:0.9;min-height:12%;max-height:12%;position: fixed;left: 0; bottom: 0;width: 100%; background-color: black; color:
-white; text-align: left; font-size: 15px">
+<div class="corFooter"  style="opacity:0.9;min-height:2%;max-height:2.5%;position: fixed;left: 0;bottom: 0;width: 100%;
+background-color: lightgrey;text-align: left;font-size: 15px; text-align:center;">
     <div style=" background-image: url('<?= Asset::image('logotipo.png') ?>'); position: relative;
             background-repeat: no-repeat; width: 100%; height:6%; background-size: contain; background-position: right;">
-        <p style="font-family: 'Helvetica Neue, Helvetica, Arial, sans-serif'">Trabalho realizado no ambito da
+        <p style="font-family: 'Arial'">Trabalho realizado no ambito da
             disciplina
-            de Programação em Web Servidor</p>
-        <p style="font-family: 'Helvetica Neue, Helvetica, Arial, sans-serif'">Ano curricular 2019-2020</p>
-        <p style="font-family: 'Helvetica Neue, Helvetica, Arial, sans-serif'">Trabalho desenvolvido por:</p>
-        <p style="font-family: 'Helvetica Neue, Helvetica, Arial, sans-serif'">- Sérgio Ezequiel nº2190..., - Vladyslav
+            de Programação em Web Servidor Ano curricular 2019-2020 Trabalho desenvolvido por: - Sérgio Ezequiel nº2190710, - Vladyslav
             Bobko 2190749</p>
+
     </div>
 </div>
 </html>
+<link rel="stylesheet" href="<?= Asset::css('/jogo.css') ?>">

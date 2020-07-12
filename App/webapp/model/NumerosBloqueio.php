@@ -35,52 +35,52 @@ class NumerosBloqueio
                 }
                 break;
             case 3:
-                if ($this->numerosBloqueio['3'] && ($this->numerosBloqueio['2'] && $this->numerosBloqueio['1'])) {
+                if ($this->numerosBloqueio['3'] && ($this->numerosBloqueio['2'] || $this->numerosBloqueio['1'])) {
                     return true;
                 }
                 break;
             case 4:
-                if ($this->numerosBloqueio['4'] && ($this->numerosBloqueio['3'] && $this->numerosBloqueio['1'])) {
+                if ($this->numerosBloqueio['4'] && ($this->numerosBloqueio['3'] || $this->numerosBloqueio['1'])) {
                     return true;
                 }
                 break;
             case 5:
-                if (($this->numerosBloqueio['1'] && $this->numerosBloqueio['4']) && ($this->numerosBloqueio['3'] && $this->numerosBloqueio['2']) && $this->numerosBloqueio['5']) {
+                if (($this->numerosBloqueio['1'] || $this->numerosBloqueio['4']) && ($this->numerosBloqueio['3'] || $this->numerosBloqueio['2']) && $this->numerosBloqueio['5']) {
                     return true;
                 }
                 break;
             case 6:
-                if (($this->numerosBloqueio['1'] && $this->numerosBloqueio['5']) && ($this->numerosBloqueio['2'] && $this->numerosBloqueio['4']) && ($this->numerosBloqueio['3'] && $this->numerosBloqueio['2'] && $this->numerosBloqueio['1']) && $this->numerosBloqueio['6']) {
+                if (($this->numerosBloqueio['1'] || $this->numerosBloqueio['5']) && ($this->numerosBloqueio['2'] || $this->numerosBloqueio['4']) && ($this->numerosBloqueio['3'] || $this->numerosBloqueio['2'] || $this->numerosBloqueio['1']) && $this->numerosBloqueio['6']) {
                     return true;
                 }
                 break;
             case 7:
-                if (($this->numerosBloqueio['1'] && $this->numerosBloqueio['6']) && ($this->numerosBloqueio['2'] && $this->numerosBloqueio['5']) && ($this->numerosBloqueio['3'] && $this->numerosBloqueio['4']) && ($this->numerosBloqueio['4'] && $this->numerosBloqueio['2'] && $this->numerosBloqueio['1']) && $this->numerosBloqueio['7']) {
+                if (($this->numerosBloqueio['1'] || $this->numerosBloqueio['6']) && ($this->numerosBloqueio['2'] || $this->numerosBloqueio['5']) && ($this->numerosBloqueio['3'] || $this->numerosBloqueio['4']) && ($this->numerosBloqueio['4'] || $this->numerosBloqueio['2'] || $this->numerosBloqueio['1']) && $this->numerosBloqueio['7']) {
                     return true;
                 }
                 break;
             case 8:
-                if (($this->numerosBloqueio['7'] && $this->numerosBloqueio['1']) && ($this->numerosBloqueio['2'] && $this->numerosBloqueio['6']) && ($this->numerosBloqueio['3'] && $this->numerosBloqueio['5']) && ($this->numerosBloqueio['4'] && $this->numerosBloqueio['3'] && $this->numerosBloqueio['1']) && ($this->numerosBloqueio['5'] && $this->numerosBloqueio['2'] && $this->numerosBloqueio['1']) && $this->numerosBloqueio['8']) {
+                if (($this->numerosBloqueio['7'] || $this->numerosBloqueio['1']) && ($this->numerosBloqueio['2'] || $this->numerosBloqueio['6']) && ($this->numerosBloqueio['3'] || $this->numerosBloqueio['5']) && ($this->numerosBloqueio['4'] || $this->numerosBloqueio['3'] || $this->numerosBloqueio['1']) && ($this->numerosBloqueio['5'] || $this->numerosBloqueio['2'] || $this->numerosBloqueio['1']) && $this->numerosBloqueio['8']) {
                     return true;
                 }
                 break;
             case 9:
-                if (($this->numerosBloqueio['1'] && $this->numerosBloqueio['8']) && ($this->numerosBloqueio['2'] && $this->numerosBloqueio['7']) && ($this->numerosBloqueio['3'] && $this->numerosBloqueio['6']) && ($this->numerosBloqueio['4'] && $this->numerosBloqueio['5']) && ($this->numerosBloqueio['5'] && $this->numerosBloqueio['3'] && $this->numerosBloqueio['1']) && ($this->numerosBloqueio['6'] && $this->numerosBloqueio['2'] && $this->numerosBloqueio['1']) && ($this->numerosBloqueio['4'] && $this->numerosBloqueio['3'] && $this->numerosBloqueio['2']) && $this->numerosBloqueio['9']) {
+                if (($this->numerosBloqueio['1'] || $this->numerosBloqueio['8']) && ($this->numerosBloqueio['2'] || $this->numerosBloqueio['7']) && ($this->numerosBloqueio['3'] || $this->numerosBloqueio['6']) && ($this->numerosBloqueio['4'] || $this->numerosBloqueio['5']) && ($this->numerosBloqueio['5'] || $this->numerosBloqueio['3'] || $this->numerosBloqueio['1']) && ($this->numerosBloqueio['6'] || $this->numerosBloqueio['2'] || $this->numerosBloqueio['1']) && ($this->numerosBloqueio['4'] || $this->numerosBloqueio['3'] || $this->numerosBloqueio['2']) && $this->numerosBloqueio['9']) {
                     return true;
                 }
                 break;
             case 10:
-                if (($this->numerosBloqueio['1'] && $this->numerosBloqueio['9']) && ($this->numerosBloqueio['2'] && $this->numerosBloqueio['8']) && ($this->numerosBloqueio['3'] && $this->numerosBloqueio['7']) && ($this->numerosBloqueio['4'] && $this->numerosBloqueio['6']) && ($this->numerosBloqueio['5'] && $this->numerosBloqueio['3'] && $this->numerosBloqueio['2']) && ($this->numerosBloqueio['5'] && $this->numerosBloqueio['4'] && $this->numerosBloqueio['1']) && ($this->numerosBloqueio['6'] && $this->numerosBloqueio['3'] && $this->numerosBloqueio['1']) && ($this->numerosBloqueio['7'] && $this->numerosBloqueio['2'] && $this->numerosBloqueio['1'])) {
+                if (($this->numerosBloqueio['1'] || $this->numerosBloqueio['9']) && ($this->numerosBloqueio['2'] || $this->numerosBloqueio['8']) && ($this->numerosBloqueio['3'] || $this->numerosBloqueio['7']) && ($this->numerosBloqueio['4'] || $this->numerosBloqueio['6']) && ($this->numerosBloqueio['5'] || $this->numerosBloqueio['3'] || $this->numerosBloqueio['2']) && ($this->numerosBloqueio['5'] || $this->numerosBloqueio['4'] || $this->numerosBloqueio['1']) && ($this->numerosBloqueio['6'] || $this->numerosBloqueio['3'] || $this->numerosBloqueio['1']) && ($this->numerosBloqueio['7'] || $this->numerosBloqueio['2'] || $this->numerosBloqueio['1'])) {
                     return true;
                 }
                 break;
             case 11:
-                if (($this->numerosBloqueio['2'] && $this->numerosBloqueio['9']) && ($this->numerosBloqueio['3'] && $this->numerosBloqueio['8']) && ($this->numerosBloqueio['4'] && $this->numerosBloqueio['7']) && ($this->numerosBloqueio['5'] && $this->numerosBloqueio['6']) && ($this->numerosBloqueio['6'] && $this->numerosBloqueio['4'] && $this->numerosBloqueio['1']) && ($this->numerosBloqueio['6'] && $this->numerosBloqueio['3'] && $this->numerosBloqueio['2']) && ($this->numerosBloqueio['7'] && $this->numerosBloqueio['3'] && $this->numerosBloqueio['1']) && ($this->numerosBloqueio['8'] && $this->numerosBloqueio['2'] && $this->numerosBloqueio['1'])) {
+                if (($this->numerosBloqueio['2'] || $this->numerosBloqueio['9']) && ($this->numerosBloqueio['3'] || $this->numerosBloqueio['8']) && ($this->numerosBloqueio['4'] || $this->numerosBloqueio['7']) && ($this->numerosBloqueio['5'] || $this->numerosBloqueio['6']) && ($this->numerosBloqueio['6'] || $this->numerosBloqueio['4'] || $this->numerosBloqueio['1']) && ($this->numerosBloqueio['6'] || $this->numerosBloqueio['3'] || $this->numerosBloqueio['2']) && ($this->numerosBloqueio['7'] || $this->numerosBloqueio['3'] || $this->numerosBloqueio['1']) && ($this->numerosBloqueio['8'] || $this->numerosBloqueio['2'] || $this->numerosBloqueio['1'])) {
                     return true;
                 }
                 break;
             case 12:
-                if (($this->numerosBloqueio['3'] && $this->numerosBloqueio['9']) && ($this->numerosBloqueio['4'] && $this->numerosBloqueio['8']) && ($this->numerosBloqueio['5'] && $this->numerosBloqueio['7']) && ($this->numerosBloqueio['6'] && $this->numerosBloqueio['5'] && $this->numerosBloqueio['1']) && ($this->numerosBloqueio['6'] && $this->numerosBloqueio['4'] && $this->numerosBloqueio['2']) && ($this->numerosBloqueio['6'] && $this->numerosBloqueio['3'] && $this->numerosBloqueio['2'] && $this->numerosBloqueio['1']) && ($this->numerosBloqueio['7'] && $this->numerosBloqueio['3'] && $this->numerosBloqueio['2']) && ($this->numerosBloqueio['8'] && $this->numerosBloqueio['3'] && $this->numerosBloqueio['1']) && ($this->numerosBloqueio['9'] && $this->numerosBloqueio['2'] && $this->numerosBloqueio['1'])) {
+                if (($this->numerosBloqueio['3'] || $this->numerosBloqueio['9']) && ($this->numerosBloqueio['4'] || $this->numerosBloqueio['8']) && ($this->numerosBloqueio['5'] || $this->numerosBloqueio['7']) && ($this->numerosBloqueio['6'] || $this->numerosBloqueio['5'] || $this->numerosBloqueio['1']) && ($this->numerosBloqueio['6'] || $this->numerosBloqueio['4'] || $this->numerosBloqueio['2']) && ($this->numerosBloqueio['6'] || $this->numerosBloqueio['3'] || $this->numerosBloqueio['2'] || $this->numerosBloqueio['1']) && ($this->numerosBloqueio['7'] || $this->numerosBloqueio['3'] || $this->numerosBloqueio['2']) && ($this->numerosBloqueio['8'] || $this->numerosBloqueio['3'] || $this->numerosBloqueio['1']) && ($this->numerosBloqueio['9'] || $this->numerosBloqueio['2'] || $this->numerosBloqueio['1'])) {
                     return true;
                 }
         }

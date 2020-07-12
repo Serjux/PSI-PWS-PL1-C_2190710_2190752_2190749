@@ -32,3 +32,15 @@
     margin: 0 auto;
 }
 
+.corFooter{
+    opacity:0.9;
+    min-height:2%;
+    max-height:2%;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: lightgrey;
+    text-align: left;
+    font-size: 15px;
+}
