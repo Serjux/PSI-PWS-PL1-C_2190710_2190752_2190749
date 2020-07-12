@@ -21,7 +21,7 @@ class SeletorNumeros
             unset($this->numerosSelecionados[$indice]);
         }
         else {
-            array_push($this->numerosSelecionados);
+            array_push($this->numerosSelecionados, $userNumber);
         }
     }
 
@@ -42,7 +42,6 @@ class SeletorNumeros
     }
 
     public function clearSelection() {
-        // Remover todos os elementos do vetor this->numerosSelecionados
         unset($this->numerosSelecionados);
         $this->numerosSelecionados = array();
     }

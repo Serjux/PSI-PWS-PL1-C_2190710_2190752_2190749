@@ -1,63 +1,103 @@
 <?php
 
-use ArmoredCore\Facades\Router;
 use ArmoredCore\WebObjects\Asset;
 use ArmoredCore\WebObjects\Data;
 use ArmoredCore\WebObjects\URL;
 use ArmoredCore\WebObjects\Layout;
 
 Layout::includeLayout('header');
-$engine = Data::get('ge');
-unset($selecionado);
-$selecionado = array();
 
+$engine = Data::get('ge');
+/* @var GameEngine $engine */
+// Comentário feito para o PhpStorm reconhecer a variável $engine do tipo GameEngine
 ?>
 
 <div class="centro">
+    <?php if($engine->getEstadoJogo() == 5) { ?>
+        <div class="alert alert-success">
+            <?php if($engine->tabuleiro->getVencedor() == 1) {
+                echo 'Jogador 1 vence!';
+            }
+            else if($engine->tabuleiro->getVencedor() == 2) {
+                echo 'Jogador 2 vence!';
+            }
+            else {
+                echo 'Empate!';
+            } ?>
+        </div>
+    <?php } ?>
+
     <div class="tabuleiro">
         <div class="botoes">
             <?php for($i = 1; $i <= 9; $i++) { ?>
-                    <a href="<?= URL::toRoute('jogo/rolardados',$i)?> <?php $selecionado[$i] = true;?>"class="btn btn-default botaoTabuleiro"name="botao<?=$i?>"><?= $i ?></button>
-                </a>
+                <a href="<?= URL::toRoute('jogo/selecionarnumero', $i) ?>"
+                   class="btn
+                       <?php
+                           // É preciso o espaço no final da string porque o browser não considera o espaço antes do "botaoTabuleiro"
+                           if($engine->getEstadoJogo() >= 3 || $engine->getEstadoJogo() == 5) {
+                               echo 'disabled ';
+                           }
+
+                           if($engine->tabuleiro->numerosBloqueioP1->seletorNumeros->selectionHasNumber($i)) {
+                               echo 'btn-success ';
+                           }
+                           else {
+                               echo 'btn-default ';
+                           }
+
+                           if($engine->tabuleiro->numerosBloqueioP1->isNumberBloqueado($i)) {
+                               echo 'btn-danger disabled ';
+                           }
+                       ?> botaoTabuleiro" role="button"><?= $i ?></a>
             <?php } ?>
         </div>
 
         <div class="meioTabuleiro">
             <div style="display: inline-block; margin-right: 30%">
                 <p>Jogador 1:</p>
-                <p>0</p>
+                <p><?= $engine->tabuleiro->numerosBloqueioP1->getFinalPointSum() ?></p>
             </div>
             <div style="display: inline-block">
                 <p>Jogador 2:</p>
-                <p>0</p>
+                <p><?= $engine->tabuleiro->numerosBloqueioP2->getFinalPointSum() ?></p>
             </div>
         </div>
 
         <div class="botoes">
             <?php for($i = 1; $i <= 9; $i++) { ?>
-                <a href="<?= URL::toRoute('jogo/rolardados',$i) ?>"class="btn btn-default botaoTabuleiro" name="botao<?=$i?>"><?= $i ?></button>
-                </a>
+                <a href="<?= URL::toRoute('jogo/selecionarnumero', $i) ?>"
+                   class="btn
+                       <?php
+                           // É preciso o espaço no final da string porque o browser não considera o espaço antes do "botaoTabuleiro"
+                           if($engine->getEstadoJogo() < 3 || $engine->getEstadoJogo() == 5) {
+                               echo 'disabled ';
+                           }
+
+                           if($engine->tabuleiro->numerosBloqueioP2->seletorNumeros->selectionHasNumber($i)) {
+                               echo 'btn-success ';
+                           }
+                           else {
+                               echo 'btn-default ';
+                           }
+
+                           if($engine->tabuleiro->numerosBloqueioP2->isNumberBloqueado($i)) {
+                               echo 'btn-danger disabled ';
+                           }
+                       ?>
+                   botaoTabuleiro"><?= $i ?></a>
             <?php } ?>
         </div>
     </div>
 
     <div class="dados">
-        <?php if($engine->getEstadoJogo() == 1) { ?>
+        <?php if($engine->getEstadoJogo() == 1 || $engine->getEstadoJogo() == 3) { ?>
             <a href="<?= URL::toRoute('jogo/rolardados') ?>" class="btn btn-primary">Rolar dados</a>
-        <?php } else if($engine->getEstadoJogo() == 2) { ?>
+        <?php } else if($engine->getEstadoJogo() == 2 || $engine->getEstadoJogo() == 4) { ?>
             <img src="<?= Asset::image($engine->tabuleiro->resultadoDado1 . '.png')?>">
             <img src="<?= Asset::image($engine->tabuleiro->resultadoDado2 . '.png')?>">
             <p>À espera da jogada...</p>
+            <p>Vez do Jogador <?= $engine->getEstadoJogo() == 2 ? '1' : '2' ?></p>
         <?php } ?>
-        <?php //verificação do array
-        for($p=1; $p<=9; $p++) {
-            if($selecionado[$p] == true) {
-                echo '<style> .botao'.$p.'{ background-color: blue; }</style>';
-            }
-
-}
-        var_dump($selecionado);
-        ?>
     </div>
 </div>
 

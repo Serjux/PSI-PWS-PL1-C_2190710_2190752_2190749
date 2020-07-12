@@ -19,14 +19,24 @@ class NumerosBloqueio
         }
     }
 
-    public function bloquearNumeros($numeros, $somaDados)
+    public function bloquearNumeros($somaDados)
     {
-        if ($this->seletorNumeros->checkSelectionTotal($somaDados)) {
-
+        if($this->seletorNumeros->checkSelectionTotal($somaDados)) {
+            for($i = 1; $i <= 9; $i++) {
+                if($this->seletorNumeros->selectionHasNumber($i)) {
+                    $this->numerosBloqueio[''.$i] = true;
+                }
+            }
+            return true;
         }
+        return false;
     }
 
-    public function checkFinalJogada($numeros, $somaDados)
+    public function isNumberBloqueado($numero) {
+        return $this->numerosBloqueio[''.$numero];
+    }
+
+    public function checkFinalJogada($somaDados)
     {
         switch ($somaDados) {
             case 2:
@@ -83,14 +93,30 @@ class NumerosBloqueio
                 if (($this->numerosBloqueio['3'] || $this->numerosBloqueio['9']) && ($this->numerosBloqueio['4'] || $this->numerosBloqueio['8']) && ($this->numerosBloqueio['5'] || $this->numerosBloqueio['7']) && ($this->numerosBloqueio['6'] || $this->numerosBloqueio['5'] || $this->numerosBloqueio['1']) && ($this->numerosBloqueio['6'] || $this->numerosBloqueio['4'] || $this->numerosBloqueio['2']) && ($this->numerosBloqueio['6'] || $this->numerosBloqueio['3'] || $this->numerosBloqueio['2'] || $this->numerosBloqueio['1']) && ($this->numerosBloqueio['7'] || $this->numerosBloqueio['3'] || $this->numerosBloqueio['2']) && ($this->numerosBloqueio['8'] || $this->numerosBloqueio['3'] || $this->numerosBloqueio['1']) && ($this->numerosBloqueio['9'] || $this->numerosBloqueio['2'] || $this->numerosBloqueio['1'])) {
                     return true;
                 }
+                break;
         }
+        return false;
     }
 
     public function getFinalPointSum()
     {
         $soma = 0;
+
+        for ($i = 1; $i <= 9; $i++) {
+            $soma += $this->numerosBloqueio['' . $i] ? 0 : $i;
+        }
+
+        return $soma;
+    }
+
+    public function getSomaNumerosBloqueados()
+    {
+        $soma = 0;
+
         for ($i = 1; $i <= 9; $i++) {
             $soma += $this->numerosBloqueio['' . $i] ? $i : 0;
         }
+
+        return $soma;
     }
 }

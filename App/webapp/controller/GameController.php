@@ -24,11 +24,59 @@ class GameController
 
     public function rolarDados() {
         $engine = Session::get('gameEngine');
+
         $engine->rolarDados();
-        $engine->updateEstadoJogo(2);
+        if($engine->getEstadoJogo() == 1) {
+            $engine->updateEstadoJogo(2);
+        }
+        else {
+            $engine->updateEstadoJogo(4);
+        }
+
+        if($engine->tabuleiro->checkFinalJogadaP1($engine->tabuleiro->somaDados)) {
+            $engine->updateEstadoJogo(4);
+        }
+        if($engine->tabuleiro->checkFinalJogadaP2($engine->tabuleiro->somaDados)) {
+            $engine->updateEstadoJogo(5);
+
+            $user = Session::get('user');
+            $score = new Score();
+            $score->score = $engine->tabuleiro->getPointsVencedor();
+            $score->idutilizador = $user->idutilizador;
+
+            $score->save();
+        }
+
+        \Tracy\Debugger::barDump($engine, 'Game Engine');
+
         Session::set('gameEngine', $engine);
 
-        return View::make('game.tabuleiro', ['ge'=> $engine]);
+        return View::make('game.tabuleiro', ['ge' => $engine]);
+    }
+
+    public function selecionarNumero($numero) {
+        /* @var GameEngine $engine */
+        $engine = Session::get('gameEngine');
+
+        if($engine->getEstadoJogo() == 2) {
+            $engine->tabuleiro->numerosBloqueioP1->seletorNumeros->updateSelection($numero);
+            if($engine->tabuleiro->numerosBloqueioP1->bloquearNumeros($engine->tabuleiro->somaDados)) {
+                $engine->updateEstadoJogo(1);
+                $engine->tabuleiro->numerosBloqueioP1->seletorNumeros->clearSelection();
+            }
+        }
+        else if($engine->getEstadoJogo() == 4) {
+            $engine->tabuleiro->numerosBloqueioP2->seletorNumeros->updateSelection($numero);
+            if($engine->tabuleiro->numerosBloqueioP2->bloquearNumeros($engine->tabuleiro->somaDados)) {
+                $engine->updateEstadoJogo(3);
+                $engine->tabuleiro->numerosBloqueioP2->seletorNumeros->clearSelection();
+            }
+        }
+
+        \Tracy\Debugger::barDump($engine, 'Game Engine');
+
+        Session::set('gameEngine', $engine);
+        return View::make('game.tabuleiro', ['ge' => $engine]);
     }
 
     //Interligações para as paginas
@@ -37,7 +85,7 @@ class GameController
     }
 
     public function pontuacoes() {
-        $pontuacoestotais = Score::find('all', array('order' => 'score asc', 'limit' => 10));
+        $pontuacoestotais = Score::find('all', array('order' => 'score desc', 'limit' => 10, 'select' => 'SUM(score) AS score, idutilizador'));
         return View::make('game.pontuacoes', ['mp' => $pontuacoestotais]);
     }
 
@@ -45,13 +93,8 @@ class GameController
         return View::make('game.registo');
     }
 
-    public function perfil() {
-        if(!Session::has('user')) {
-            Redirect::toRoute('jogo/index');
-        }
-        $user = Session::get('user');
-
-        $pontuacoesRecentes = Score::find('all', array('conditions' => 'idutilizador='.$user->idutilizador, 'order' => 'datahora desc', 'limit' => 5));
+    public function perfil($user) {
+        $pontuacoesRecentes = Score::find('all', array('conditions' => 'idutilizador='.$user, 'order' => 'datahora desc'));
 
         return View::make('game.perfil', ['pr' => $pontuacoesRecentes]);
     }

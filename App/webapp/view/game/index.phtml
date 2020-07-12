@@ -7,22 +7,22 @@ Layout::includeLayout('header');
 
 if (Session::has('user')) {
     ?>
-    <div>
+<div>
     <div align="center" style="font-size: 18px;">
         <h2>Regras:</h2>
         <p>No início do jogo todos os números estão desbloqueados, o utilizador deverá primeiramente rodar os dados de
             6</p>
         <p> para obter a soma dos dados. Essa soma é possível entre 2 e 12. Após obter a soma dos dados o utilizador
             deverá</p>
-        <p>escolher entre os números de 1 à 9 para que os números que o utilizador escolheu sejam iguais a soma dos
+        <p>escolher entre os números de 1 a 9 para que os números que o utilizador escolheu sejam iguais à soma dos
             dados.</p>
         <p>O utilizador não pode escolher o mesmo número duas vezes, após o número ter sido selecionado uma vez, ele
             ficará</p>
-        <p>bloqueado. O jogo só termina após o utilizador não conseguir mais bloquear qualquer numero, ou seja, caso
+        <p>bloqueado. O jogo só termina após o utilizador não conseguir mais bloquear qualquer número, ou seja, caso
             não</p>
         <p>tenha números disponíveis para obter a soma dos dados.</p>
         </br>
-        <h4>Caso pretenda iniciar um novo jogo, selecione a hiperligação abaixo</h4>
+        <h4>Caso pretenda iniciar um novo jogo, clique na hiperligação abaixo</h4>
     </div>
     <div align="center">
         <img width="50px" height="50px" src="<?= Asset::image('arrow_down.png') ?>">
@@ -39,7 +39,7 @@ if (Session::has('user')) {
         <h3><p>Tem que fazer login antes de poder jogar Shut the box.</p></h3>
         <h4><p>Para realizar o login dirija-se para o "Login" no canto superior direito.</p></h4>
     </div>
-    </div>
+</div>
 <?php }
 Layout::includeLayout('footer');
 ?>

@@ -31,7 +31,6 @@
     display: inline-block;
     margin: 0 auto;
 }
-
 .corFooter{
     opacity:0.9;
     min-height:2%;
@@ -43,4 +42,26 @@
     background-color: lightgrey;
     text-align: left;
     font-size: 15px;
+}
+
+.tabelaScores {
+    width: 70%;
+    text-align: center;
+    margin: auto;
+}
+
+.textoCentrado {
+    text-align: center;
+}
+
+.tabelaPerfil {
+    width: 50%;
+}
+
+.alertScores {
+    width: 70%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
 }

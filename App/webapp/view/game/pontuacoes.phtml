@@ -6,36 +6,32 @@ Layout::includeLayout('header');
 $melhorespontuacoes = Data::get('mp');
 $i = 0;
 ?>
-    <div style="font-size: 17px; font-family: Arial">
-        <p>Aqui poderá verificar a posição global dos scores, comparando quais os utilizadores que estão em primeiro lugar.</p>
-    </div>
-    <h1 style="font-family: 'Bauhaus 93'">
-        Top 10
-    </h1>
 
-    <table class="table">
-        <thead>
+
+    <div>
+        <h1 class="textoCentrado">Top 10</h1>
+        <div class="alert alert-info alertScores">Aqui poderá verificar a posição global dos scores, comparando quais os utilizadores que estão em primeiro lugar.</div>
+
+        <table class="table tabelaScores">
+            <thead>
             <tr>
-                <th>Posição</th>
-                <th>Jogador</th>
-                <th>Pontos</th>
-                <th>Data/hora</th>
+                <th class="textoCentrado">Posição</th>
+                <th class="textoCentrado">Jogador</th>
+                <th class="textoCentrado">Pontos</th>
             </tr>
-        </thead>
-        <tbody>
+            </thead>
+            <tbody>
             <?php foreach ($melhorespontuacoes as $pontuacao) {
                 $i += 1;
                 $user = User::find($pontuacao->idutilizador); ?>
                 <tr class="success">
                     <td><?= $i ?></td>
-                    <td><?= $user->username ?></td>
+                    <td><a href="<?= URL::toRoute('jogo/perfil', $user->idutilizador) ?>"><?= $user->username ?></a></td>
                     <td><?= $pontuacao->score ?></td>
-                    <td><?= $pontuacao->datahora->format('d-m-Y H:i') ?></td>
                 </tr>
-                <?php
-            }?>
-        </tbody>
-    </table>
-        </br>
+            <?php }?>
+            </tbody>
+        </table>
+    </div>
 
 <?php Layout::includeLayout('footer'); ?>

@@ -1,23 +1,43 @@
-<?php use ArmoredCore\WebObjects\Session;
+<?php
+use ArmoredCore\WebObjects\Session;
 use ArmoredCore\WebObjects\URL;
 use ArmoredCore\WebObjects\Layout;
 use ArmoredCore\WebObjects\Data;
+use ArmoredCore\WebObjects\Asset;
 
 Layout::includeLayout('header');
 $pontuacoesRecentes = Data::get('pr');
 $user = Session::get('user');
+/* @var User $user */
 ?>
-    <div class="panel panel-default" style="font-family: 'Berlin Sans FB';font-size: 22px">
-        <div class="panel-heading">Top 5 Pontuações</div>
-            <div id="utilizador" class="panel-heading">Nome: <?= $user->username ?> (<?= $user->nomecompleto ?>)</div>
+    <div class="">
+        <div class="col-md-3">
+            <img src="<?= Asset::image('user.png') ?>">
+            <div style="margin-top: 20px;">
+                <p>Username: <?= $user->username ?></p>
+                <p>Nome: <?= $user->nomecompleto ?></p>
+                <p>Data de nascimento: <?= $user->datanasc->format('d-m-Y') ?></p>
+            </div>
+        </div>
 
-        <div class="panel-body">
-            <p>Poderá visualizar os resultados mais recentes dos jogos realizados.</p>
-            <h5>↓ Mais recente</h5>
-            <?php foreach ($pontuacoesRecentes as $pontuacao) { ?>
-                <h5><?= $pontuacao->datahora->format('d-m-Y H:i') ?> | <?= $user->username ?> | <?= $pontuacao->score ?></h5>
-            <?php } ?>
-            <h5>↓Mais Antigo</h5>
+        <div class="col-md-9">
+            <div class="panel-heading">Pontuações</div>
+            <div class="panel-body">
+                <table class="table tabelaPerfil">
+                    <thead>
+                        <th>Data/hora</th>
+                        <th>Score</th>
+                    </thead>
+                    <tbody>
+                    <?php foreach ($pontuacoesRecentes as $pontuacao) { ?>
+                        <tr>
+                            <td><?= $pontuacao->datahora->format('d-m-Y H:i') ?></td>
+                            <td><?= $pontuacao->score ?></td>
+                        </tr>
+                    <?php } ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
