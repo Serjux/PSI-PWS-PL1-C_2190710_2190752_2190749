@@ -29,24 +29,24 @@ $user = Data::get('dd');
                                 <div class="top-margin">
                                     <label>Nome <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="nome"
-                                           value="<?= $user->nomecompleto ?>">
+                                           value="<?= $user->nomecompleto ?>" required>
                                 </div>
 
                                 <div class="top-margin">
                                     <label>Data de nascimento <span class="text-danger">*</span></label>
                                     <input type="date" class="form-control" name="datanasc"
-                                           value="<?= $user->datanasc->format('Y-m-d') ?>">
+                                           value="<?= $user->datanasc->format('Y-m-d') ?>" required>
                                 </div>
 
 
                                 <div class="top-margin">
                                     <label>Email <span class="text-danger">*</span></label>
-                                    <input type="email" class="form-control" name="email" value="<?= $user->email ?>">
+                                    <input type="email" class="form-control" name="email" value="<?= $user->email ?>" required>
                                 </div>
 
                                 <div class="top-margin">
                                     <label>Password <span class="text-danger">*</span></label>
-                                    <input type="password" class="form-control" name="password">
+                                    <input type="password" class="form-control" name="password" required>
                                 </div>
 
                                 <hr>

@@ -52,7 +52,7 @@ class UsersController
         $user->email = Post::get('email');
         $user->datanasc = Post::get('datanasc');
 
-        if($user->is_valid()) {
+        if($user->is_valid() && Post::get('password') != '') {
             $user->save();
             Redirect::toRoute('jogo/index');
         }
