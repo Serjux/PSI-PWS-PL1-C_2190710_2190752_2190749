@@ -85,7 +85,7 @@ class GameController
     }
 
     public function pontuacoes() {
-        $pontuacoestotais = Score::find('all', array('order' => 'score desc', 'limit' => 10, 'select' => 'SUM(score) AS score, idutilizador'));
+        $pontuacoestotais = Score::find('all', array('group' => 'idutilizador', 'order' => 'score desc', 'limit' => 10, 'select' => 'SUM(score) AS score, idutilizador'));
         return View::make('game.pontuacoes', ['mp' => $pontuacoestotais]);
     }
 
